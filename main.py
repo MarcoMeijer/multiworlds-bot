@@ -12,6 +12,11 @@ async def on_ready():
     print(client.user)
     await client.change_presence(game=discord.Game(name=';help'))
 
+@client.event
+async def on_message(message):
+    if message.content.startswith('Hallo'):
+        await client.send_message(message.channel, 'stfu')
+	
 async def list_servers():
     await client.wait_until_ready()
     while not client.is_closed:
